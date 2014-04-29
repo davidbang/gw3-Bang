@@ -36,7 +36,7 @@ Set 5:
 
 2.A default actor is colored blue and facing NORTH.
 
-3. An actor has methods and instance variables whcih it would not beable to have if it was an interface.
+3. An actor has methods and instance variables which it would not beable to have if it was an interface.
 
 4.a) An actor cannot put itself on the grid twice, without first removing itself.
 b) An actor cannot remove itself twice because once it has already been removed from the grid, it cannot be removed again.
@@ -78,10 +78,10 @@ places a flower in the previous location of the bug.
 
 Group Activity:
 
-1.a)Jumper can move forward and then turn and move forward if the location 2 spaces forward is a rock or flower.
-b)If the location 2 spaces forward is out of the grid, then jumper can move forward 1 then turn 90 degrees.
+1.a)Jumper can turn if the location 2 spaces forward is a rock or flower.
+b)If the location 2 spaces forward is out of the grid, then jumper can turn.
 c)Jumper can turn if it is facing the edge of a grid.
-d) Jumper can move forward and then turn and then move foward. if there is an actor 2 spaces forward.
+d) Jumper can turn, if there is an actor 2 spaces forward.
 e) Jumper can turn if it encounters another jumper.
 f) Not really.
 
