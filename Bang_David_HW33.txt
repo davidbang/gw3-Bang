@@ -1,0 +1,94 @@
+David Bang
+<https://github.com/davidbang/gw3-Bang>
+APCS pd 8
+HW#33 -- GridWorld, Part 3
+2014-04-28
+
+Do You Know
+Set 3:
+1.You would get the row value by calling loc1.getRow().
+
+2. The value of boolean b is false.
+
+3. The value fo loc3 is a new Location with row 4 and column 4.
+
+4. Dir has a value of southeast or 135 degrees.
+
+5. The getAdjacentLocation() method finds the location of an adjacent neighbor by looking at its parameter or direction that represents an angle
+and then getting the adjacent location of an actor in that direction.
+
+Set 4:
+1.You can obtain a count of the objects in the grid by calling getOccupiedLocations () and counting the amount of elements in this ArrayList.
+You can obtain a count of the empty locations by finding the size of the grid by multiplying getNumRows () with getNumCOls() and then subtracting
+it by getOccupiedLocations.
+
+2.You call isValid(new Location (10,10)) on the grid to see if the location is not empty.
+
+3.Grid contains method declarations but with no code because it is an interface so the code for the methods are implemented in Abstract Grid, Bounded Grid,
+and Unbounded Grid.
+
+4.It is a better design to use arrays because it uses up less memory and accessing the array indexes do not require method calls. The benefits to the arraylist
+is that you do not need to know its necessary size beforehand but for the array, you need to keep track of the size of the array by counting how many occupied
+locations are on the grid.
+
+Set 5:
+1. Actors have the properties of color, direction, and location.
+
+2.A default actor is colored blue and facing NORTH.
+
+3. An actor has methods and instance variables whcih it would not beable to have if it was an interface.
+
+4.a) An actor cannot put itself on the grid twice, without first removing itself.
+b) An actor cannot remove itself twice because once it has already been removed from the grid, it cannot be removed again.
+c) Actors can be put on a grid, removed and then put back on it and it compiles and runs.
+
+5.An actor can turn 90 degrees to the right by calling actor.setDirection (getDirection() + 90).
+
+Set 6:
+1. The canMove () method always checks if the next location is a valid location on the grid by calling
+if (!gr.isValid(next))
+        return false;
+
+2.Actor neighbor = gr.get(next);
+        return (neighbor == null) || (neighbor instanceof Flower);
+determines if the neighbor is a rock by checking if the next location is empty or occupied by a flower.
+
+3.Methods from the grid interface that are invoked include the get () and isValid () methods so that the bug can check the next location on the grid to see 
+if it is a valid location and if the actor in the location is not a rock.
+
+4.The method from the Location class is getAdjacentLocation() so that it find the next location that a bug may move to.
+
+5.Methods inherited from the Actor class include getLocation(), getGrid(), and getDirection().
+
+6.If the location in front of the bug is out of the grid, then the move method will make the bug remove itself.
+
+7.The variable loc is not needed as it can be worked around by finding a different way to find a way to trace back where the previous location of the bug was
+which can be done be getting the Adjacent location of the bug but in the opposite direction.
+
+8.The flower color is at first the same color as the bug that dropped it.
+
+9. When you remove the bug from the grid, it will replace itself with a flower.
+
+10.Flower flower = new Flower(getColor());
+flower.putSelfInGrid(gr, loc);
+places a flower in the previous location of the bug.
+
+11. The turn method should be called 4 times because 4 *45 degrees = 180.
+
+
+Group Activity:
+
+1.a)Jumper can move forward and then turn and move forward if the location 2 spaces forward is a rock or flower.
+b)If the location 2 spaces forward is out of the grid, then jumper can move forward 1 then turn 90 degrees.
+c)Jumper can turn if it is facing the edge of a grid.
+d) Jumper can move forward and then turn and then move foward. if there is an actor 2 spaces forward.
+e) Jumper can turn if it encounters another jumper.
+f) Not really.
+
+2.a) Jumper should extend the Actor class since it is an actor.
+b) THe Bug class is similar to Jumper.
+c) The constructor should be the same as that from Bug.
+d) Jumper should overide the act method from Actor and the canMove and move method from Bug should be modified.
+e) Nothing really, just modify Bug class methods.
+f) Test the Jumper by surrounding it with actors and putting it near the edge of the grid.
+
