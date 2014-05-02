@@ -1,4 +1,5 @@
 /*David Bang
+  <git@github.com:davidbang/gw3-Bang.git> (ssh clone URL)
   <https://github.com/davidbang/gw3-Bang>
   APCS pd 8
   HW#33 -- GridWorld, Part 3
@@ -11,6 +12,9 @@ import java.awt.Color;
 public class Jumper extends Actor { 
     public Jumper () {
 	setColor(Color.BLUE);
+    }
+    public Jumper (Color setcol) {
+	setColor(setcol);
     }
 
     public void act()
@@ -54,8 +58,6 @@ public class Jumper extends Actor {
 	    return false;
         Actor neighbor = gr.get(twoNext);
         return (neighbor == null) || (neighbor instanceof Flower);
-        // ok to move into empty location or onto flower
-        // not ok to move onto any other actor
     }
 }
 
